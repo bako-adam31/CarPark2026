@@ -64,20 +64,26 @@ Favorites functionality
 
 # WORKSHOP
 
+## Recommendations
+1. Use at least one checkbox.
+2. Use Accordion / dropdown for filters.
+3. Use Typescript.
+4. Use Flex / Grid for layout.
 
-# HOMEWORK
-You must continue the CarPark application. 
+
+# TODOs
+Continue the CarPark application. 
 Please be creative and develop a unique layout.
 
 1. Make the app more presentable, add css styles or add a theme
 
-2. Add filter functionality for the list of cars. Examples: construction year, price etc. (Only frontend)
+2. Add filtering and pagination from API
 
-3. Extend the search bar to search cars by manufacturer / model / etc. (Only frontend)
+3. Add filter functionality for the list of cars. Examples: construction year, price etc. (Only frontend)
 
-4. Add the possibility of sorting / ordering / pagination of the list of cars.
+4. Extend the search bar to search cars by manufacturer / model / etc. (Only frontend)
 
-5. Add filtering and pagination from API
+5. Add the possibility of sorting / ordering / pagination of the list of cars.
 
 6. Implement add to basket functionality and create a basket page that must contain the list of vehicles with details and images and the totals.
 
@@ -85,29 +91,22 @@ Please be creative and develop a unique layout.
 
 8. Use the API for the filter / search functionality (followup from 2 & 3)
 
-## Recommendations
-1. Use at least one checkbox.
-2. Use Accordion / dropdown for filters.
-3. Use Typescript.
+9. Define a global theme for the application. (different color schemes, dark mode, etc)
 
-### OPTIONAL
+10. Save the basket items and the list of orders to local storage. 
 
-1. Define a global theme for the application. (different color schemes, dark mode, etc)
+11. Use the API endpoint for filtering, search and sorting.  
 
-2. Save the basket items and the list of orders to local storage. 
+12. Use the API for the basket functionality (add, remove, etc.)
 
-3. Use the API endpoint for filtering, search and sorting.  
+13. Use the API for the favorites functionality (add, remove, etc.)
 
-4. Use the API for the basket functionality (add, remove, etc.)
+14. Implement quick view with more details for cars (modal / dialog). (Move car information from row to modal).
 
-5. Use the API for the favorites functionality (add, remove, etc.)
+15. Create an admin page to manage cars
 
-6. Create an admin page to manage cars
+16. Integrate the image upload functionality in the process of saving a new car.
 
-7. Integrate the image upload functionality in the process of saving a new car.
+17. Add banners, promotions in the application.
 
-8. Add banners, promotions in the application.
-
-9. Implement quick view with more details for cars (modal / dialog). (Move car information from row to modal).
-
-10. Use a library of UI components.
+18. Use a library of UI components.
