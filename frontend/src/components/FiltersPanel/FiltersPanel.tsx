@@ -6,12 +6,30 @@ export function FiltersPanel() {
 
     return (
         <div className="filtersPanel">
-            <h3>Filters Cars</h3>
+            <h3>Search & Filter</h3>
             <input
                 type="text"
                 placeholder="Manufacturer"
                 value={filters.manufacturer}
                 onChange={(e) => updateFilter("manufacturer", e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Model"
+                value={filters.model}
+                onChange={(e) => updateFilter("model", e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Fuel Type"
+                value={filters.fuelType}
+                onChange={(e) => updateFilter("fuelType", e.target.value)}
+            />
+            <input
+                type="text"
+                placeholder="Gearbox"
+                value={filters.gearbox}
+                onChange={(e) => updateFilter("gearbox", e.target.value)}
             />
             <label className="checkbox">
                 <input

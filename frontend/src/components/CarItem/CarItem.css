@@ -1,84 +1,170 @@
 .carItem {
-    background-color: #fff;
-    border-radius: 12px;
-    padding: 1rem;
-    margin: 1rem auto;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    display: flex;
-    flex-direction: row;
-    gap: 1.5rem;
-    max-width: 1000px;
-    transition: transform 0.2s;
+  background-color: var(--surface-color);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-color);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 
-.imageContainer {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.carItem:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--primary-color);
 }
 
-.carImage {
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-    object-fit: cover;
+.carItem__image-container {
+  width: 100%;
+  height: 220px;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--border-color);
 }
 
-.details {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.carItem__image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.45s ease;
+  display: block;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    margin-bottom: 4px;
+/* Subtle zoom effect on the image when hovering over the card */
+.carItem:hover .carItem__image-container img {
+  transform: scale(1.08);
 }
 
-.label {
-    font-weight: 600;
-    min-width: 140px;
+.carItem__details {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  flex-grow: 1;
 }
 
-.coloredLabel {
-    color: #007bff;
-    font-weight: bold;
-    min-width: 140px;
+.carItem__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
 }
 
-.list {
-    padding-left: 1.5rem;
-    margin: 0;
+.carItem__text {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
 }
 
-.price {
-    margin-top: auto;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #28a745;
-    align-self: flex-end;
+.carItem__price {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-top: auto;
+  padding-top: 1rem;
 }
 
-.row:last-child {
-    margin-top: 0.5rem;
-    display: flex;
-    gap: 10px;
+.carItem__actions {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.button {
-    padding: 0.4rem 0.8rem;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-size: 0.9rem;
-    transition: background-color 0.2s;
+.carItem__btn {
+  padding: 0.6rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
 }
 
-.button:hover {
-    background-color: #0056b3;
+.carItem__btn--primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.carItem__btn--primary:hover {
+  background-color: var(--primary-hover);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.carItem__btn--danger {
+  background-color: transparent;
+  color: var(--danger-color);
+  border: 1px solid var(--danger-color);
+  flex-grow: 0;
+  padding: 0.6rem 1.2rem;
+}
+
+.carItem__btn--danger:hover {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+/* Floating favorite icon */
+.carItem__favorite {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--surface-color);
+  border-radius: var(--radius-full);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--border-color);
+  z-index: 10;
+}
+
+.carItem__favorite:hover {
+  transform: scale(1.15);
+  border-color: var(--primary-color);
+}
+
+/* Tags and meta */
+.carItem__tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.carItem__tag {
+  padding: 0.25rem 0.5rem;
+  background: rgba(59,130,246,0.08);
+  color: var(--primary-color);
+  font-weight: 700;
+  border-radius: 999px;
+  font-size: 0.75rem;
+}
+
+.carItem__meta {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.carItem__priceBadge {
+  background: linear-gradient(90deg, rgba(34,197,94,0.12), rgba(16,185,129,0.06));
+  color: var(--primary-color);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  font-weight: 800;
 }

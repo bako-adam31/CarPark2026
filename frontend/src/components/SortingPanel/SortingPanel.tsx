@@ -1,6 +1,7 @@
 import type { Car } from "../../models/car";
 import './SortingPanel.css'
 import SortIcon from '../../assets/sort.svg?react'
+import { useFilters } from "../../hooks/useFilters";
 
 const SORT_FIELDS: { value: keyof Car | "", label: string }[] = [
     { value: "", label: "Default" },
@@ -16,16 +17,25 @@ const PAGE_SIZES = [5, 10, 20, 50]
 
 export function SortingPanel() {
 
-    const order: string = "asc"
+    const { sort, setSort, order, setOrder, limit, setLimit } = useFilters()
+
+    function handleSort(event: React.ChangeEvent<HTMLSelectElement>) {
+        const value = event.target.value
+        setSort(value === "" ? undefined : (value as keyof Car))
+    }
+
+    function handleLimit(event: React.ChangeEvent<HTMLSelectElement>) {
+        setLimit(Number(event.target.value))
+    }
 
     return (
         <div className="SortingPanel">
-            {/* <label className="SortingPanel__field">
+            <label className="SortingPanel__field">
                 <span className="SortingPanel__label">Sort by</span>
                 <div className="SortingPanel__select">
                     <select
-                        value={""}
-                        onChange={(e) => {}}
+                        value={sort}
+                        onChange={handleSort}
                     >
                         {SORT_FIELDS.map((field) => (
                             <option key={field.value} value={field.value}>
@@ -39,7 +49,7 @@ export function SortingPanel() {
             <button
                 type="button"
                 className="SortingPanel__order"
-                onClick={() => {}}
+                onClick={() => setOrder(order === "asc" ? "desc" : "asc")}
                 disabled={false}
                 aria-label={order === "asc" ? "Sort ascending" : "Sort descending"}
                 title={order === "asc" ? "Ascending" : "Descending"}
@@ -53,8 +63,9 @@ export function SortingPanel() {
                 <span className="SortingPanel__label">Per page</span>
                 <div className="SortingPanel__select">
                     <select
-                        value={0}
-                        onChange={(e) => {}}
+
+                        value={limit}
+                        onChange={handleLimit}
                     >
                         {PAGE_SIZES.map((size) => (
                             <option key={size} value={size}>
@@ -63,7 +74,7 @@ export function SortingPanel() {
                         ))}
                     </select>
                 </div>
-            </label> */}
+            </label>
         </div>
     )
 }

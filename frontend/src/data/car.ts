@@ -58,9 +58,14 @@ export async function getCars(params: GetCarsParams = {}): Promise<Paginated<Car
 
     const items = (await res.json()) as Car[]
     const total = Number(res.headers.get('X-Total-Count') ?? items.length)
-    const totalPages = limit > 0 ? Math.max(1, Math.ceil(total / limit)) : 1
 
-    return { items, total, page, limit, totalPages }
+    const safePage = page ?? 1
+    const safeLimit = limit ?? items.length ?? 1
+
+    const totalPages = safeLimit > 0 ? Math.max(1, Math.ceil(total / safeLimit)) : 1
+
+    return { items, total, page: safePage, limit: safeLimit, totalPages }
+
 }
 
 /**

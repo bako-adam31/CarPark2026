@@ -1,9 +1,28 @@
 .Content {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
 }
 
 .CarList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
 
+.CarList .Pagination {
+  grid-column: 1 / -1;
+}
+
+@media (min-width: 900px) {
+  .CarList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1300px) {
+  .CarList {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
