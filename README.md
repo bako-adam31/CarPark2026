@@ -2,8 +2,17 @@
 
 # Step 0
 
+
 Install a node version, LTS should be good
 [https://nodejs.org/en/download/prebuilt-installer](https://nodejs.org/en/download/prebuilt-installer)
+
+
+test2asdasd
+
+
+
+
+
 
 # Starting
 
