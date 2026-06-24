@@ -9,6 +9,16 @@ export type Filters = {
     gearbox: string
 }
 
+export type Favorites = {
+    favorites: Car[];
+}
+
+export type FavoritesContextType = {
+    favorites: Car[];
+    toggleFavorite: (car: Car) => void;
+    isFavorite: (car: Car) => boolean;
+};
+
 export type FiltersContextType = {
     page: number;
     setPage: Dispatch<SetStateAction<number>>;

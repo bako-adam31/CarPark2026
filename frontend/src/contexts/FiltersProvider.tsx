@@ -16,19 +16,22 @@ const defaultFilters: Filters = {
 export function FiltersProvider({ children }: PropsWithChildren) {
     const [filters, setFilters] = useState<Filters>(defaultFilters)
 
-
-
     const [page, setPage] = useState<number>(5)
     const [limit, setLimit] = useState<number>(25)
     const [sort, setSort] = useState<keyof Car | undefined>()
     const [order, setOrder] = useState<SortOrder>('asc')
+    const [favorite, setFavorite] = useState<boolean>(false)
 
 
+    const handleFavoritesToggle = (checked: boolean) => {
+        setFavorite(checked)
+    }
 
 
     const updateFilter = (field: keyof Filters, value: string) => {
         setFilters(prev => ({ ...prev, [field]: value }))
     }
+
 
     const resetFilters = () => setFilters(defaultFilters)
     
